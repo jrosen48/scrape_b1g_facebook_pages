@@ -5,26 +5,10 @@ import csv
 import time
 import codecs
 
-app_id = "545636978929375"
-app_secret = "0aebbaa417979026785b6ea4eac22fb6"
-page_id = "IndianaUniversity"
+app_id = "" # need to create a facebook app and add this and app_secret
+app_secret = ""
 
-# UNLincoln
-# UniversityOfMichigan
-# osu
-# spartans.msu
-# illinois.edu
-# NorthwesternU
-# IndianaUniversity
-# PurdueUniversity
-# universityofiowa
-# pennstate
-# RutgersU
-# UnivofMaryland
-# UWMadison
-# UofMN
-
-the_list = ['indianauniversity', 'PurdueUniversity', 'universityofiowa', 'pennstate', 'rutgersu', 'univofmaryland', 'uwmadison', 'uofmn']
+the_list = ['unlincoln', 'universityofmichigan', 'osu', 'spartans.msu', 'illinois.edu', 'northwesternu', 'indianauniversity', 'PurdueUniversity', 'universityofiowa', 'pennstate', 'rutgersu', 'univofmaryland', 'uwmadison', 'uofmn']
 
 for item in the_list:
 
