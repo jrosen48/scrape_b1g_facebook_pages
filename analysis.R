@@ -27,8 +27,8 @@ str(data)
 
 data$date <- lubridate::ymd_hms(data$status_published)
 data$year <- lubridate::year(data$date)
-data$month <- lubridate::month(data$date, label = T)
-data$printed_date <- paste0(data$month, ", ", data$year)
+data$month <- lubridate::month(data$date)
+data$printed_date <- as.numeric(paste0(data$year, ".", data$month))
 
 str(data)
 
@@ -45,22 +45,23 @@ length(unique(data_ss$printed_date))
 
 72/12
 
+str(data_ss)
+
 ggplot(data_ss, aes(x = printed_date, y = num, color = .id, group = .id)) +
     geom_line() +
     geom_point() +
     facet_wrap( ~ .id) +
     scale_y_continuous(labels = scales::comma) +
     scale_fill_manual(values = getPalette(colorCount)) +
-    xlim("2012") +
-    #scale_x_manual(breaks = 1:6, labels = c("2011", "2012", "2013", "2014", "2015", "2016")) +
+    scale_x_discrete(breaks = 1:6, labels = c("2011", "2012", "2013", "2014", "2015", "2016")) +
     theme_minimal() +
     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
     theme(axis.text.y = element_text(angle = 45, hjust = 1)) +
     ylab(NULL) +
     xlab(NULL) +
     theme(text =element_text(size = 15, family = "Georgia")) +
-    ggtitle("Interactions with B1G Facebook Pagess") +
+    ggtitle("Interactions with B1G Facebook Pages (2011 - 2016)") +
     theme(legend.position = "bottom") +
     labs(color = NULL)
 
-ggsave("candidates.png")
+ggsave("b1gpages.png")
